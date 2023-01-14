@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- css样式 -->
+
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.js"></script>
+    <script>
+        $(function(){
+            // alert("jQuery test");
+            /* ---设置三个函数分别对用户名、密码、验证码进行检查---*/
+
+            // 1. 检查用户名
+            function checkUsername(){
+                if($("#username").val() == "") {
+                    $("#usernameinfo").text("用户名不能为空");
+                    $("#usernameinfo").show();
+                    $("#username").focus();
+                    return false;
+                } else {
+                    $("#usernameinfo").hide();
+                    return true;
+                }
+            }
+
+            // 2. 检查密码框
+            function checkPassword(){
+                if($("#password").val() == ""){
+                    $("#passwordinfo").text("密码不能为空");
+                    $("#passwordinfo").show();
+                    $("#password").focus();
+                    return false;
+                } else {
+                    $("#passwordinfo").hide();
+                    return true;
+                }
+            }
+
+            // 3. 检查验证码
+            function checkImagecode(){
+                if($("#imagecode").val() == "") {
+                    $("#imagecodeinfo").text("验证码不能为空");
+                    $("#imagecodeinfo").show();
+                    $("#imagecode").focus();
+                    return false;
+                } else if($("#imagecode").val() != ("cpuq"||"CPUQ")){
+                    $("#imagecodeinfo").text("验证码不一致");
+                    $("#imagecodeinfo").show();
+                    $("#imagecode").focus();
+                    return false;
+                } else{
+                    $("#imagecodeinfo").hide();
+                    return true;
+                }
+            }
+
+            /* -----提交按钮触发事件-------   */
+            $("#submit").click(function(){
+                if(checkUsername() && checkPassword() && checkImagecode()){
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+
+            /*  ------失去焦点事件-------*/
+            $("#username").blur(function(){
+                return checkUsername();
+            });
+            $("#password").blur(function(){
+                return checkPassword();
+            });
+            $("#imagecode").blur(function(){
+                return checkImagecode();
+            });
+        });
+
+        $(function(){
+            var d = new Date();
+            var year = d.getFullYear();
+            var month = d.getMonth()+1;
+            var date = d.getDate();
+
+            $("#currentDate").html(year
+                + "/"
+                + (month<10?"0"+month:month)
+                + "/"
+                + (date<10?"0"+date:date));
+        });
+
+    </script>
+</head>
+
+
+<body >
+
+<div class="bj">
+    <form action="http://localhost:63342/RGZJ/webapp/message.html?_ijt=8dq23b89juu2ooeagtbomdob02&_ij_reload=RELOAD_ON_SAVE" method="post" id="regform">
+        <div class="bgDiv">
+            <div class="login">
+                <img class="logoImg" src="../css/hh.png"/>
+                <p2>登录页面</p2>
+
+                <div class="user">
+                    用户
+                    <select name="users" >
+                        <option value="student">学生</option>
+                        <option value="teacher" selected>教师</option>
+                        <option value="gly">管理员</option>
+                    </select>
+                </div>
+
+                <div class="username">
+                    <img class="userImg" src="../css/yh.png"/>
+                    <input class="userInp" id="username" name="username" type="text"  placeholder="请输入用户名"/>
+                    <span id="usernameinfo" class="info"></span>
+                </div>
+
+                <div class="pwd">
+                    <img class="pwdImg" src="../css/ma.png"/>
+                    <input class="pwdInp" type="password" id="password" name="password"  placeholder="请输入密码"/>
+                    <span id="passwordinfo" class="info"></span>
+
+                </div>
+                <div class="check_num">
+                    <img class="checkImg" src="../css/yzm.png"/>
+                    <input class="userInp" id="imagecode" name="imagecode" type="text"  placeholder="请输入验证码"/>
+                    <span id="imagecodeinfo" class="info"></span>
+                </div>
+                <input type="submit" value="登录" id="regform1">
+                <div class="reset">
+                    <input type="reset">
+                </div>
+            </div>
+            <a href="../register.html">注册</a>
+        </div>
+    </form>
+</div>
+
+
+
+</body>
+
+</html>

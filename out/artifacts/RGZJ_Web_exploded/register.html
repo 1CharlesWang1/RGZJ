@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>register</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+</head>
+<body >
+
+    <div class="bj">
+        <form action="/RGZJ_war/registerServlet"
+              method="post" id="regform">
+        <div class="bgDiv">
+            <div class="login">
+                <img class="logoImg" src="./css/hh.png"/>
+                <p2>注册</p2>
+                <div class="username">
+                    <p id="er1" class="check_user" >用户名为空</p>
+                    <img class="userImg" src="./css/yh.png"/>
+                    <input class="userInp" id="user_name" name="username" type="text" placeholder="请输入用户名"/>
+                </div>
+
+                <div class="username">
+                    <p id="er2" class="check_user" >密码为空</p>
+                    <img class="pwdImg" src="./css/ma.png"/>
+                    <input class="pwdInp" type="password" id="password" name="newpassword1" placeholder="请输入密码"/>
+
+                </div>
+                <div class="username">
+                    <p id="er3" class="check_user" >密码不一致</p>
+                    <img class="pwdImg" src="./css/ma.png"/>
+                    <input class="pwdInp" type="password" id="password2" name="newpassword2" placeholder="请再次输入密码"/>
+                </div>
+
+                <div class="username">
+                    <p id="er4" class="check_user" >电话错误</p>
+                    <img class="userImg" src="./css/yh.png"/>
+                    <input class="userInp" id="phone" name="phone" type="text" placeholder="请输入电话"/>
+                </div>
+                <div class="username">
+                    <p id="er5" class="check_user" >邮箱错误</p>
+                    <img class="userImg" src="./css/yh.png"/>
+                    <input class="userInp" id="email" name="email" type="text" placeholder="请输入邮箱"/>
+
+                </div>
+                <div class="username">
+                    <p id="er6" class="check_user" >地址为空</p>
+                    <img class="userImg" src="./css/yh.png"/>
+                    <input class="userInp" id="address" name="address" type="text" placeholder="请输入工作地址"/>
+
+                </div>
+                <div class="username">
+                    <p id="er7" class="check_user" >验证码错误</p>
+                    <img class="checkImg" src="./css/yzm.png"/>
+                    <input class="userInp" id="check_num" name="check_num" type="text"  placeholder="请输入验证码"/>
+                </div>
+                <input type="submit" value="注册" id="regform1">
+                <div class="reset">
+                    <input type="reset">
+                </div>
+
+            </div>
+        </div>
+        </form>
+    </div>
+
+
+
+    <script src="js/register.js">
+        alert("注册成功")
+    </script>
+
+
+
+</body>
+
+</html>
